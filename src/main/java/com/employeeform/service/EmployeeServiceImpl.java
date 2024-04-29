@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -46,6 +47,20 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public State saveState(State state) {
         return stateRepository.save(state);
+    }
+
+    @Override
+    public Employee updateEmployee(Employee employee, Long employeeId) {
+        Optional<Employee> existingEmployee = employeeRepository.findById(employeeId);
+        if(existingEmployee.isPresent()) {
+            existingEmployee.get().setCountry(employee.getCountry());
+            existingEmployee.get().setState(employee.getState());
+            existingEmployee.get().setLastName(employee.getLastName());
+            existingEmployee.get().setFirstName(employee.getFirstName());
+            existingEmployee.get().setDateOfBirth(employee.getDateOfBirth());
+            employeeRepository.save(employee);
+        }
+        return new Employee();
     }
 
 }

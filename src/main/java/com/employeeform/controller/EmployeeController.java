@@ -47,5 +47,13 @@ public class EmployeeController {
         return ResponseEntity.ok(state);
     }
 
+    @PutMapping("updateEmployee/{employeeId}")
+    public ResponseEntity<Employee> updateEmployee(@PathVariable Long employeeId, @RequestBody Employee employee) {
+        employee.setId(employeeId); // Ensure ID matches path variable
+        employeeService.updateEmployee(employee,employeeId);
+        return ResponseEntity.ok(employee); // Assuming successful update
+    }
+
+
 
 }

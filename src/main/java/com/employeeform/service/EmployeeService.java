@@ -14,4 +14,6 @@ public interface EmployeeService {
     Country saveCountry(Country country);
 
     State saveState(State state);
+
+    Employee updateEmployee(Employee employee,Long employeeId);
 }

@@ -117,6 +117,37 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "updateEmployee",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"firstName\": \"Anil\",\r\n    \"lastName\": \"Sandy\",\r\n    \"dateOfBirth\": \"1989-04-01\",\r\n    \"country\": {\r\n        \"id\": 2,\r\n        \"name\": \"Japan\"\r\n    },\r\n    \"state\": \"Tokiya\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/employees/updateEmployee/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employees",
+						"updateEmployee",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
